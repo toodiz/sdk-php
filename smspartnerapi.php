@@ -5,7 +5,7 @@ class SMSPartnerAPI
 	const BASE_URL = 'http://api.smspartner.fr/v1/';
 	public $debug;
 
-	public function __construct($debug = true)
+	public function __construct($debug = false)
 	{
 		$this->setDebug($debug);
 	}
@@ -43,7 +43,7 @@ class SMSPartnerAPI
 			return false;
 
 		$result = $this->postRequest(self::BASE_URL.'message-status?'.$params);
-		return Tools::jsonDecode($result);
+		return json_decode($result);
 	}
 	
 	
@@ -99,7 +99,7 @@ class SMSPartnerAPI
 		{
 
 			curl_setopt($curl, CURLOPT_POST, true);
-			curl_setopt($curl, CURLOPT_POSTFIELDS, Tools::jsonEncode($fields));
+			curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($fields));
 		}
 
 		$result = curl_exec($curl);
@@ -118,7 +118,7 @@ class SMSPartnerAPI
 
 	private function returnJson($string)
 	{
-		$json_array = Tools::jsonDecode($string);
+		$json_array = json_decode($string);
 		if (is_null($json_array))
 			return $string;
 		else
