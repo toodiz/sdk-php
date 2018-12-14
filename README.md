@@ -1,15 +1,19 @@
 # sdk-php
 
+```
 <?php
 require "smspartnerapi.php";
+```
 
 
-$smspartner = new SMSPartnerAPI(false);
-//check credits
+###### check credits
+```
+$smspartner = new SMSPartnerAPI();
 $result = $smspartner->checkCredits('?apiKey=YOUR_API_KEY');
+```
 
-
-//send SMS
+###### send SMS
+```
 $fields = array(
     "apiKey"=>"YOUR_API_KEY",
     "phoneNumbers"=>"xxxxxxxxxx",
@@ -21,7 +25,9 @@ $fields = array(
 
 );
 $result = $smspartner->sendSms($fields);
+```
 
-
-// get delivery
+###### get delivery
+```
 $result = $smspartner->checkStatusByNumber('?apiKey=YOUR_API_KEY&messageId=666&phoneNumber=xxxxxxxxxx');
+```
