@@ -1,5 +1,3 @@
-# sdk-php
-
 <?php
 require "smspartnerapi.php";
 
