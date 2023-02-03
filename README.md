@@ -9,7 +9,7 @@ require "smspartnerapi.php";
 ###### check credits
 ```
 $smspartner = new SMSPartnerAPI();
-$result = $smspartner->checkCredits('?apiKey=YOUR_API_KEY');
+$result = $smspartner->checkCredits('apiKey=YOUR_API_KEY');
 ```
 
 ###### send SMS
